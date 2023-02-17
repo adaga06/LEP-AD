@@ -6,7 +6,7 @@ It is recommended to use CUDA 11.4 version.
 > 
 > conda activate esm2
 
-run datafrom esm file
+run data_protein_esm.ipynb notebook to create protein representations from ESM-2
 
 > conda env create -f environment2.yml
 > 
