@@ -11,3 +11,5 @@ run data_protein_esm.ipynb notebook to create protein representations from ESM-2
 > conda env create -f environment2.yml
 > 
 > conda activate LEP-AD
+
+run LEP-AD.ipynb notebook to reproduce the results for each dataset
