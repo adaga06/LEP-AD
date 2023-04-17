@@ -28,4 +28,5 @@ For this we will create a new environment, to prevent disturbing old environment
 > 
 > conda activate LEP-AD
 
-run LEP-AD.ipynb notebook to reproduce the results for each dataset
+run LEP-AD.ipynb notebook to reproduce the results for each dataset or you can run the below command line
+> python LEP-AD.py --dataset Stitch --batch-size 128 --output_dim 64 --heads 4 --epochs 400 --n_layers 3 --step_size 250
