@@ -1,7 +1,16 @@
-# LEP-AD
-**Repurposing ESM Pretrained Models for Drug-Target Interaction (DTI)**
+# **LEP-AD: Language Embedding of Proteins and Attention to Drugs predicts drug target interactions**
+Repurposing ESM Pretrained Models for Drug-Target Interaction (DTI)
 
-## Setting Up ESM-2 Repository
+## Table of Contents
+
+- [Setup ESM-2 Repository](#setup-esm-2-repository)
+- [Environment Setup](#environment-setup)
+- [Protein Representation with ESM](#protein-representation-with-esm)
+- [LEP-AD for Drug-Target Interaction](#lep-ad-for-drug-target-interaction)
+- [Automated Setup Script](#automated-setup-script)
+
+## Setup ESM-2 Repository
+
 
 Begin by cloning the ESM-2 repository:
 
