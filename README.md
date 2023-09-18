@@ -1,32 +1,52 @@
 # LEP-AD
-Repurposing ESM pretrained models for DTI 
-Start with cloning the ESM-2 Repor from 
+**Repurposing ESM Pretrained Models for Drug-Target Interaction (DTI)**
+
+## Setting Up ESM-2 Repository
+
+Begin by cloning the ESM-2 repository:
 
 >
 > git clone https://github.com/facebookresearch/esm.git
 >
 
-Once you are in esm directory . To get the data use this to make data directory:
+After cloning, navigate to the `esm` directory. Here, you'll need to create a directory for data storage:
+
 >
 > mkdir data
 >
-download the data and keep various datasets in the above sepcificed data folder.
-https://drive.google.com/drive/folders/1YaCspHVJCFdY-UCUyNrw0EtWqVfzmqrO?usp=share_link
 
-It is recommended to use CUDA 11.4 version.
-To create ESM environment use below command line
+Next, download the required datasets from the provided link and ensure they are stored in the `data` directory you just created:
+[Download Data](https://drive.google.com/drive/folders/1YaCspHVJCFdY-UCUyNrw0EtWqVfzmqrO?usp=share_link)
+
+## Environment Configuration
+
+For optimal performance, it's recommended to utilize CUDA 11.4. To set up the ESM environment, execute the following commands:
+
+>
 > conda env create -f environment.yml
-> 
+>
 > conda activate esm2
-to get Protein representation from ESM use notebook to get unique proteins and get the inference from ESM-2 model
-run data_protein_esm.ipynb notebook to create protein representations from ESM-2
+>
 
-Once you have protein representation from ESM, you can use LEP-AD for Drug-Target Interaction.
-For this we will create a new environment, to prevent disturbing old environment.
+## Protein Representation with ESM
 
+To derive protein representations from ESM, utilize the provided notebook. This will help in extracting unique proteins and making inferences using the ESM-2 model:
+
+Execute the `data_protein_esm.ipynb` notebook to generate protein representations from ESM-2.
+
+## LEP-AD for Drug-Target Interaction
+
+With the protein representations from ESM in place, you're set to use LEP-AD for Drug-Target Interaction. To ensure there's no interference with the previous environment, we'll establish a new one:
+
+>
 > conda env create -f environment_LEP_AD.yml
-> 
+>
 > conda activate LEP-AD
+>
 
-run LEP-AD.ipynb notebook to reproduce the results for each dataset or you can run the below command line
+To reproduce the results for each dataset, run the `LEP-AD.ipynb` notebook. Alternatively, the following command line can be executed:
+
+>
 > python LEP-AD.py --dataset Stitch --batch-size 128 --output_dim 64 --heads 4 --epochs 400 --n_layers 3 --step_size 250
+>
+
