@@ -59,8 +59,8 @@ To reproduce the results for each dataset, run the `LEP-AD.ipynb` notebook. Alte
 
 >
 > chmod +x setup_and_run.sh
+>
+>
 > ./setup_and_run.sh
-
-> python LEP-AD.py --dataset Stitch --batch-size 128 --output_dim 64 --heads 4 --epochs 400 --n_layers 3 --step_size 250
 >
 
