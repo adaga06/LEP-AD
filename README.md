@@ -27,7 +27,7 @@ After cloning, navigate to the `esm` directory. Here, you'll need to create a di
 Next, download the required datasets from the provided link and ensure they are stored in the `data` directory you just created:
 [Download Data](https://drive.google.com/drive/folders/1YaCspHVJCFdY-UCUyNrw0EtWqVfzmqrO?usp=share_link)
 
-## Environment Configuration
+## Environment Setup
 
 For optimal performance, it's recommended to utilize CUDA 11.4. To set up the ESM environment, execute the following commands:
 
@@ -53,9 +53,14 @@ With the protein representations from ESM in place, you're set to use LEP-AD for
 > conda activate LEP-AD
 >
 
+## Automated Setup Script
+
 To reproduce the results for each dataset, run the `LEP-AD.ipynb` notebook. Alternatively, the following command line can be executed:
 
 >
+> chmod +x setup_and_run.sh
+> ./setup_and_run.sh
+
 > python LEP-AD.py --dataset Stitch --batch-size 128 --output_dim 64 --heads 4 --epochs 400 --n_layers 3 --step_size 250
 >
 
