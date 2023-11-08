@@ -1,5 +1,9 @@
-# **LEP-AD: Language Embedding of Proteins and Attention to Drugs predicts drug target interactions**
-Repurposing ESM Pretrained Models for Drug-Target Interaction (DTI)
+# LEP-AD: Language Embedding of Proteins and Attention to Drugs Predicts Drug Target Interactions
+
+Explore our research paper: [**LEP-AD on BioRxiv**](https://www.biorxiv.org/content/10.1101/2023.03.14.532563v1)
+
+Welcome to our GitHub repository dedicated to our paper titled "LEP-AD: Language Embedding of Proteins and Attention to Drugs Predicts Drug Target Interactions." This research work delves into the repurposing of ESM Pretrained Models for Drug-Target Interaction (DTI) and was presented at the Machine Learning for Drug Discovery workshop (MLDD) during ICLR'23.
+
 
 ## Table of Contents
 
