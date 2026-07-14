@@ -1,7 +1,10 @@
 import sys, os
 import torch
 import torch.nn as nn
-import wandb
+
+USE_WANDB = os.environ.get("WANDB", "0") == "1"
+if USE_WANDB:
+    import wandb
 # training function at each epoch
 scaler = torch.cuda.amp.GradScaler()
 def train(model, device, train_loader, optimizer, epoch):
@@ -28,7 +31,8 @@ def train(model, device, train_loader, optimizer, epoch):
             loss = loss_fn(output, labels)
         #loss.backward()
         scaler.scale(loss).backward()
-        wandb.log({"loss per batch": loss})
+        if USE_WANDB:
+            wandb.log({"loss per batch": loss})
         #optimizer.step()
         scaler.step(optimizer)
         scaler.update()

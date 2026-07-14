@@ -5,7 +5,13 @@ import pickle
 import pandas as pd
 import numpy as np
 import os
-import wandb
+
+# Weights & Biases is optional. Enable with WANDB=1; configure with the standard
+# WANDB_ENTITY / WANDB_PROJECT env vars so the run logs to *your* account.
+USE_WANDB = os.environ.get("WANDB", "0") == "1"
+if USE_WANDB:
+    import wandb
+
 from train import train,predicting
 from utils import calculate_metrics
 
@@ -118,17 +124,17 @@ best_mse = 1000
 best_test_mse = 1000
 best_epoch = -1
 # model_file_name = 'models/model_' + model_st + '_' + dataset + '_' + str(fold) + '.model'
-wandb.init(project="LEP-AD-Ablation-study",
-           name='dataset '+dataset+',batch '+str(batch_size)+',output_dim '+str(output_dim)+',heads '+str(heads),
-            entity="daga06")
+if USE_WANDB:
+    wandb.init(project=os.environ.get("WANDB_PROJECT", "LEP-AD-Ablation-study"),
+               name='dataset '+dataset+',batch '+str(batch_size)+',output_dim '+str(output_dim)+',heads '+str(heads),
+               entity=os.environ.get("WANDB_ENTITY"))
 for epoch in range(NUM_EPOCHS):
     train(model, device, train_loader, optimizer, epoch + 1)
     print('predicting for valid data')
     G, P = predicting(model, device, valid_loader)
     val_mse,val_ci,val_rm2 = calculate_metrics(G, P, dataset)
-    wandb.log({"val_ci": val_ci})
-    wandb.log({"val_mse": val_mse})
-    wandb.log({"val_rm2": val_rm2})
+    if USE_WANDB:
+        wandb.log({"val_ci": val_ci, "val_mse": val_mse, "val_rm2": val_rm2})
 df_test_fold = pd.read_csv('data/' + dataset + '/'+ dataset+'_' + 'test' + '.csv')
 test_drugs, test_prot_keys, test_Y = list(df_test_fold['compound_iso_smiles']), list(df_test_fold['target_sequence']), list(df_test_fold['affinity'])
 test_drugs, test_prot_keys, test_Y = np.asarray(test_drugs), np.asarray(test_prot_keys), np.asarray(test_Y)

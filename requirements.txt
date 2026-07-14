@@ -1,0 +1,30 @@
+# Training-side (LEP-AD) environment.
+# Derived from environment_LEP_AD.yml + actual imports in model.py, train.py,
+# preprocess_data.py, utils.py.
+#
+# Protein embedding extraction (ESM-2) has a separate, conflicting dependency
+# set — see environment.yml / README.md "Installation" for that step.
+# Install fair-esm separately: pip install fair-esm
+#
+# torch-geometric and its C++ extensions (torch-scatter, torch-sparse,
+# torch-cluster, torch-spline-conv) must be installed with wheels matching
+# your exact torch + CUDA build; see https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
+
+torch==2.2.2
+torch-geometric==2.5.3
+torch-scatter==2.1.2
+torch-sparse==0.6.18
+
+rdkit==2023.9.5
+networkx==2.8.8
+
+pandas==2.2.1
+numpy==1.26.4
+scipy==1.12.0
+scikit-learn==1.4.1.post1
+lifelines==0.27.8
+
+matplotlib==3.8.3
+tqdm==4.66.2
+
+wandb==0.16.5
